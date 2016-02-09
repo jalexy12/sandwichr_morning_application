@@ -1,8 +1,11 @@
 <h2>
-	<%= @sandwich.name  %>
-	<small><%= @sandwich.total_calories  %></small>
+	<span class="my-sandwich" data-sandwich-id="<%= @sandwich.id  %>">
+		<%= @sandwich.name  %>
+	</span>
+	<small class="my-sandwich-calories"><%= @sandwich.total_calories  %></small>
 </h2>
-<ul>
+
+<ul class="ingredient-list">
 	<% @sandwich.ingredients.all.each do |ingredient| %>
 		<li>
 			<%= ingredient.name  %>
@@ -10,3 +13,10 @@
 		</li>
 	<% end %>
 </ul>
+
+<div class="ingredient-box">
+		<% @ingredients.each do | ingredient | %>
+			<button data-id="<%= ingredient.id %>" class="ingredient-button"><%= ingredient.name  %>
+			</button>
+		<% end %>
+</div>
