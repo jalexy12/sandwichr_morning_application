@@ -4,6 +4,13 @@ class SandwichesController < ApplicationController
 	  render json: sandwiches
 	end
 
+	def add_ingredient
+		sandwich = Sandwich.find_by(id: params[:id])
+		ingredient = Ingredient.find_by(id: params[:ingredient_id])
+		sandwich.ingredients.push(ingredient)
+		render json: sandwich.to_json(:include => :ingredients)
+	end
+
 	def create
 	  sandwich = Sandwich.create(sandwich_params)
 	  render json: sandwich
