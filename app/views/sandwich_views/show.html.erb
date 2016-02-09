@@ -1,0 +1,12 @@
+<h2>
+	<%= @sandwich.name  %>
+	<small><%= @sandwich.total_calories  %></small>
+</h2>
+<ul>
+	<% @sandwich.ingredients.all.each do |ingredient| %>
+		<li>
+			<%= ingredient.name  %>
+			<%= ingredient.calories  %>
+		</li>
+	<% end %>
+</ul>
