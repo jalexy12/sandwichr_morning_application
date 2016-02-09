@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'static_pages#home'
   devise_for :users
   resources :sandwiches, only: [:index, :show], controller: "sandwich_views"  
   scope "/api" do 
