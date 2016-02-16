@@ -6,5 +6,6 @@ class Sandwich < ActiveRecord::Base
 
 	  def add_calories(ingredient)
 	  	self.total_calories += ingredient.calories
+	  	self.save
 	  end
 end
